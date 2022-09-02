@@ -4,7 +4,8 @@
 This is a README generator the takes input from the user in order to generate a README file for the user's project. README files are important as they provide important information regarding the purpose of the project, the technologies used and the motivation behind the project. There is no correct README format, but this generator provides a solid foundation.
 
 ## Installation
-###Prerequisites
+
+### Prerequisites
 1. GitBash
 2. VS Code
 3. Node.js
