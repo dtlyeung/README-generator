@@ -14,6 +14,7 @@ const generateMarkdown = require('./utils/generateMarkdown.js');
 // Contributions
 // Testing
 // Licenses
+// Credits
 
 const questions = [
     {
@@ -57,7 +58,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'project-title',
+        name: 'projecttitle',
         message: 'Please enter the title of your project',
         validate: titleInput => {
             if (titleInput) {
@@ -69,7 +70,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'project-description',
+        name: 'projectdescription',
         message: 'Please enter a description for the project',
         validate: descriptionInput => {
             if (descriptionInput) {
@@ -156,14 +157,15 @@ const questions = [
 // TODO: Create a function to write README file
 const writeToFile = data => {
     return new Promise ((resolve, reject) => {
-        fs.writeREADME('./dist/README.md', data, err => {
+
+        fs.writeFile('./new/README.md', data, err => {
             if(err) {
                 reject (err);
                 return;
             }
             resolve({
                 ok: true,
-                message: console.log('README created! You can find it in the "dist" folder.')    
+                message: console.log('README created! You can find it in the "new" folder.')    
             });
         })
     })
