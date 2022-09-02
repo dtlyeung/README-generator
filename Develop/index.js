@@ -131,7 +131,7 @@ const questions = [
                 return false;
             }
         }
-    }
+    },
     {
         type: 'confirm',
         name: 'licenseconfirm',
@@ -142,7 +142,7 @@ const questions = [
         type: 'list',
         name: 'licenses',
         message: 'What licenses would you like to include?',
-        choices: ['MIT', 'GPL', 'CC0'],
+        choices: ['MIT', 'GPL', 'CC Attribution 4.0'],
         when: ({licenseconfirm}) => {
             if (licenseconfirm) {
                 return true;
@@ -154,12 +154,34 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+const writeToFile = data => {
+    return new Promise ((resolve, reject) => {
+        fs.writeREADME('./dist/README.md', data, err => {
+            if(err) {
+                reject (err);
+                return;
+            }
+            resolve({
+                ok: true,
+                message: console.log('README created! You can find it in the "dist" folder.')    
+            });
+        })
+    })
+}
     
+// TODO: Create a function to initialize app
+const init = () => {
+    return inquirer.prompt(questions);
 }
 
-// TODO: Create a function to initialize app
-function init() {}
-
 // Function call to initialize app
-init();
+init()
+.then(answers => {
+    return generateMarkdown(answers);
+})
+.then(Readme => {
+    return writeToFile(Readme);
+})
+.catch(err => {
+    console.log(err);
+})
