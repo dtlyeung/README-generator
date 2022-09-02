@@ -11,6 +11,8 @@ const generateMarkdown = require('./utils/generateMarkdown.js');
 // Project description
 // Install instructions
 // Usage instructions
+// Contributions
+// Testing
 // Licenses
 
 const questions = [
@@ -73,7 +75,7 @@ const questions = [
             if (descriptionInput) {
                 return true;
             } else {
-                console.log('Please enter a description for the project.')
+                console.log('Please enter a description for the project.');
                 return false;
             }
         }
@@ -86,7 +88,7 @@ const questions = [
             if (installInput) {
                 return true;
             } else {
-                console.log('Please provide installation instructions so users can run your program correctly.')
+                console.log('Please provide installation instructions so users can run your program correctly.');
                 return false;
             }
         }
@@ -105,6 +107,32 @@ const questions = [
         }
     },
     {
+        type: 'input',
+        name: 'contributions',
+        message: 'Please enter how others can contribute to this project.',
+        validate: contributionsinput => {
+            if (contributionsinput) {
+                return true;
+            } else {
+                console.log('Please provide instructions as to how others can contribute to this project.');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'testing',
+        message: 'Please describe what tests were written for your application and how they can be used.',
+        validate: testinginput => {
+            if (testinginput) {
+                return true;
+            } else {
+                console.log('Please provide information about any tests written for the project, and how to use them.');
+                return false;
+            }
+        }
+    }
+    {
         type: 'confirm',
         name: 'licenseconfirm',
         message: 'Would you like to include any licenses?',
@@ -114,6 +142,7 @@ const questions = [
         type: 'list',
         name: 'licenses',
         message: 'What licenses would you like to include?',
+        choices: ['MIT', 'GPL', 'CC0'],
         when: ({licenseconfirm}) => {
             if (licenseconfirm) {
                 return true;
@@ -125,7 +154,9 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    
+}
 
 // TODO: Create a function to initialize app
 function init() {}
