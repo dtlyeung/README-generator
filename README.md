@@ -25,7 +25,7 @@ Find your brand new README file in the 'new' folder.
 ## Demo
 Follow the link down below to watch a README be created!
 
-<iframe src="https://drive.google.com/file/d/1Ui_3tmrxxeFmWfC1EbjLMaeqCaiN-JE3/preview" width="640" height="480"></iframe>
+https://youtu.be/90u75xyM3q8
 
 ## Contact me
 Github: https://github.com/dtlyeung
